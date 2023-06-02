@@ -6,6 +6,7 @@ import Home2 from "./Home2";
 import Type from "./Type";
 import { ProjectsProvider } from "../../Context/ProjectsContext";
 import ProjectsGrid from "../ProjectsGrid/ProjectsGrid";
+import Clients from "../Clients/Clients";
 
 function Home() {
   return (
@@ -24,7 +25,7 @@ function Home() {
 
               <h1 className="heading-name">
                 I'M
-                <strong className="main-name"> sigma BEHERA</strong>
+                <strong className="main-name"> Sababa Usmani</strong>
               </h1>
 
               <div style={{ padding: 50, textAlign: "left" }}>
@@ -43,6 +44,9 @@ function Home() {
           </Row>
         </Container>
 
+      </Container>
+      <Container>
+        <Clients />
       </Container>
       <Container >
         <ProjectsProvider>

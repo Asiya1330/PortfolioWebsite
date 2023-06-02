@@ -26,8 +26,8 @@ const ProjectsGrid = () => {
 			<div className="mt-10 sm:mt-16">
 				<h3
 					className="font-general-regular 
-                        text-center text-secondary-dark
-                        dark:text-ternary-light
+                        text-center
+						text-ternary-light
                         text-md
                         sm:text-xl
                         mb-3
