@@ -13,7 +13,7 @@ const ProjectSingle = ({ title, category, image }) => {
 			}}
 		>
             {/* /projects/single-project */}
-			<Link to="#" aria-label="Single Project" className='no-underline'>
+			<Link to="/projects/single-project" aria-label="Single Project" className='no-underline'>
 				<div className="rounded-xl shadow-lg hover:shadow-xl cursor-pointer mb-10 sm:mb-0 bg-ternary-dark">
 					<div>
 						<img

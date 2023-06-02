@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { FiClock, FiTag } from 'react-icons/fi';
-import SingleProjectContext from '../../context/SingleProjectContext';
+import SingleProjectContext from '../../Context/SingleProjectContext';
 
 const ProjectSingleHeader = () => {
 	const { singleProjectData } = useContext(SingleProjectContext);

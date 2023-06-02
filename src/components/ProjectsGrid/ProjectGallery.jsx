@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import SingleProjectContext from '../../context/SingleProjectContext';
+import SingleProjectContext from '../../Context/SingleProjectContext';
 
 const ProjectGallery = () => {
 	const { singleProjectData } = useContext(SingleProjectContext);

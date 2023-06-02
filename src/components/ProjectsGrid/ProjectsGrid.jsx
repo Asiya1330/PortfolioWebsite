@@ -16,7 +16,7 @@ const ProjectsGrid = () => {
 	} = useContext(ProjectsContext);
 
 	return (
-		<section className="py-5 sm:py-10 mt-5 sm:mt-10">
+		<section className="py-5 sm:py-10 mt-5 sm:mt-10" id="projects">
 			<div className="text-center">
 				<p className="font-general-medium text-2xl sm:text-4xl mb-1 text-ternary-light">
 					Projects portfolio
@@ -38,7 +38,11 @@ const ProjectsGrid = () => {
 				<div
 					className="
                         flex
-                        justify-between
+						justify-evenly
+						sm:justify-evenly
+						md:justify-between 
+						lg:justify-between
+						flex-wrap
                         border-b border-primary-light
                         dark:border-secondary-dark
                         pb-3
@@ -90,30 +94,30 @@ const ProjectsGrid = () => {
 			<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-6 sm:gap-10">
 				{selectProject
 					? selectProjectsByCategory.map((project) => (
-							<ProjectSingle
-								title={project.title}
-								category={project.category}
-								image={project.img}
-								key={project.id}
-							/>
-					  ))
+						<ProjectSingle
+							title={project.title}
+							category={project.category}
+							image={project.img}
+							key={project.id}
+						/>
+					))
 					: searchProject
-					? searchProjectsByTitle.map((project) => (
+						? searchProjectsByTitle.map((project) => (
 							<ProjectSingle
 								title={project.title}
 								category={project.category}
 								image={project.img}
 								key={project.id}
 							/>
-					  ))
-					: projects.map((project) => (
+						))
+						: projects.map((project) => (
 							<ProjectSingle
 								title={project.title}
 								category={project.category}
 								image={project.img}
 								key={project.id}
 							/>
-					  ))}
+						))}
 			</div>
 		</section>
 	);

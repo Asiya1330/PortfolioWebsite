@@ -7,12 +7,16 @@ import Type from "./Type";
 import { ProjectsProvider } from "../../Context/ProjectsContext";
 import ProjectsGrid from "../ProjectsGrid/ProjectsGrid";
 import Clients from "../Clients/Clients";
+import Contact from "../Contact/Contact";
+import Reviews from "../Reviews/Reviews";
+import Services from "../Services/Services";
 
 function Home() {
   return (
     <section>
       <Container fluid className="home-section" id="home">
         <Particle />
+
         <Container className="home-content">
           <Row>
             <Col md={7} className="home-header">
@@ -43,17 +47,29 @@ function Home() {
             </Col>
           </Row>
         </Container>
-
       </Container>
+
       <Container>
         <Clients />
       </Container>
+
+      <Services />
+
       <Container >
         <ProjectsProvider>
           <ProjectsGrid></ProjectsGrid>
         </ProjectsProvider>
       </Container>
-      <Home2 />
+
+      <Container >
+        <Reviews />
+      </Container>
+
+      <Container>
+        <Contact />
+      </Container>
+     
+      {/* <Home2 /> */}
     </section>
   );
 }

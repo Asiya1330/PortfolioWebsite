@@ -1,122 +1,152 @@
-import React, { useState } from "react";
 import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
-import Container from "react-bootstrap/Container";
 import logo from "../Assets/logo.png";
-import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
-import { CgGitFork } from "react-icons/cg";
-import { ImBlog } from "react-icons/im";
-import {
-  AiFillStar,
-  AiOutlineHome,
-  AiOutlineFundProjectionScreen,
-  AiOutlineUser,
-} from "react-icons/ai";
+import React, { useState } from 'react'
+import styled from 'styled-components';
+import { GiCandleFlame } from "react-icons/gi";
 
-import { CgFileDocument } from "react-icons/cg";
-
-function NavBar() {
-  const [expand, updateExpanded] = useState(false);
+const NavBar = () => {
+  const [bar, setBar] = useState(false);
   const [navColour, updateNavbar] = useState(false);
 
-  function scrollHandler() {
-    if (window.scrollY >= 20) {
-      updateNavbar(true);
-    } else {
-      updateNavbar(false);
-    }
-  }
-
-  window.addEventListener("scroll", scrollHandler);
-
   return (
-    <Navbar
-      expanded={expand}
-      fixed="top"
-      expand="md"
-      className={navColour ? "sticky" : "navbar"}
+    <Container bar={bar}
+      className={`${navColour ? "sticky" : "navbar"} `}
     >
-      <Container>
-        <Navbar.Brand href="/" className="d-flex">
-          <img src={logo} className="img-fluid logo" alt="brand" />
-        </Navbar.Brand>
-        <Navbar.Toggle
-          aria-controls="responsive-navbar-nav"
-          onClick={() => {
-            updateExpanded(expand ? false : "expanded");
-          }}
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </Navbar.Toggle>
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="ms-auto" defaultActiveKey="#home">
-            <Nav.Item>
-              <Nav.Link as={Link} to="/" onClick={() => updateExpanded(false)}>
-                <AiOutlineHome style={{ marginBottom: "2px" }} /> Home
-              </Nav.Link>
-            </Nav.Item>
+        <Logo >
+          <img className="w-[50px]" src={logo} />
+        </Logo>
+        <Nav bar={bar}>
+          <span><a href="/#home">Home</a></span>
+          <span><a href="/#clients">Our Clients</a></span>
+          <span><a href="/#services">Services</a></span>
+          <span><a href="/#projects">Projects</a></span>
+          <span><a href="/#reviews">Testimonials</a></span>
+          <span><a href="/#contact">Contact Us</a></span>
 
-            <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/about"
-                onClick={() => updateExpanded(false)}
-              >
-                <AiOutlineUser style={{ marginBottom: "2px" }} /> About
-              </Nav.Link>
-            </Nav.Item>
-
-            <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/project"
-                onClick={() => updateExpanded(false)}
-              >
-                <AiOutlineFundProjectionScreen
-                  style={{ marginBottom: "2px" }}
-                />{" "}
-                Projects
-              </Nav.Link>
-            </Nav.Item>
-
-            <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/resume"
-                onClick={() => updateExpanded(false)}
-              >
-                <CgFileDocument style={{ marginBottom: "2px" }} /> Resume
-              </Nav.Link>
-            </Nav.Item>
-
-            <Nav.Item>
-              <Nav.Link
-                href="https://sigmablogs.vercel.app/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <ImBlog style={{ marginBottom: "2px" }} /> Blogs
-              </Nav.Link>
-            </Nav.Item>
-
-            <Nav.Item className="fork-btn">
-              <Button
-                href="https://github.com/sigma4419/Portfolio"
-                target="_blank"
-                className="fork-btn-inner"
-              >
-                <CgGitFork style={{ fontSize: "1.2em" }} />{" "}
-                <AiFillStar style={{ fontSize: "1.1em" }} />
-              </Button>
-            </Nav.Item>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
-  );
+        </Nav>
+        <div
+          onClick={() => setBar(!bar)}
+          className="bars">
+          <div className="bar"></div>
+        </div>
+      {/* </Navbar> */}
+    </Container>
+  )
 }
 
-export default NavBar;
+export default NavBar
+
+const Container = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1.5rem 2rem !important;
+    position: relative;
+    z-index:10;
+    animation: header 500ms ease-in-out;
+    @media(max-width: 840px){
+        width: 100%;
+    }
+    .bars{
+        display: none;
+    }
+    @media(max-width:640px){
+        .bars{
+            width: 40px;
+            height: 40px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem;
+            z-index: 100;
+            .bar{
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                background-color: ${props => props.bar ? "transparent" : "#fff"};
+                transition: all 400ms ease-in-out;
+                &::before, &::after{
+                    content: "";
+                    width: 100%;
+                    height: 2px;
+                    background-color: #fff;
+                    position: absolute;
+                    margin-left:-20px
+                }
+
+                &::before{
+                    transform: ${props => props.bar ? "rotate(45deg)" : "translateY(10px)"};
+                    transition: all 400ms ease-in-out;
+                }
+
+                &::after{
+                    transform: ${props => props.bar ? "rotate(-45deg)" : "translateY(-10px)"};
+                    transition: all 400ms ease-in-out;
+                }
+            }
+        }
+    }
+`
+const Logo = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    span{
+        font-size: 1.8rem;
+    }
+
+    h1{
+        font-weight: 600;
+        font-size: 1.2rem;
+    }
+`
+const Nav = styled.div`
+    @media(max-width:640px){
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(205 95 248);
+        inset: 0;
+        justify-content: center;
+        align-items: center;
+        font-size: 2rem;
+        gap: 2rem;
+        font-weight: 700;
+        height: ${props => props.bar ? "100vh" : 0};
+        transition: height 400ms ease-in-out;
+        overflow: hidden;
+        z-index: 100;
+    }
+    span{
+        margin-left: 1rem;
+        a{
+            color: #fff;
+            text-decoration: none;
+            font-weight: 400;
+            position: relative;
+            :before{
+                content: "";
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: -5px;
+                height: 2px;
+                background-color: #fff;
+                transform: scale(0);
+                transform-origin: right;
+                transition: transform 400ms ease-in-out;
+            }
+            :hover:before{
+                transform: scale(1);
+                transform-origin: left;
+            }
+            :hover{
+                opacity: 0.7;
+            }
+        }
+    }
+`

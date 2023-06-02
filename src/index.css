@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap");
+
 body {
   margin: 0;
   font-family: "Raleway", serif !important;
@@ -9,30 +10,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-image: linear-gradient(to left, rgb(27 20 41), rgb(20 15 35));
 }
+
 @keyframes scroll {
   0% {
-    transform: translateX(0);
+    left: 0;
   }
   100% {
-    transform: translateX(calc(-250px * 7));
+    left: -100%;
   }
 }
 
-.slider {
-  height: 100px;
-  margin: auto;
-  overflow: hidden;
-  position: relative;
-  width: auto;
-}
-
-.slide-track {
-  animation: scroll 40s linear infinite;
-  display: flex;
-  width: calc(250px * 14);
-}
-
-.slide {
-  height: 100px;
-  width: 250px;
+.animate {
+  animation: scroll 15s linear infinite;
 }
