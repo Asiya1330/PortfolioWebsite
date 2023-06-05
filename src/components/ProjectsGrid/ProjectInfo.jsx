@@ -21,7 +21,7 @@ const ProjectInfo = () => {
 									>
 										<span>{info.title}: </span>
 										<a
-											href="#"
+											href="/#home"
 											className={
 												info.title === 'Website' ||
 												info.title === 'Phone'

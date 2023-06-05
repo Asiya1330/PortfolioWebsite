@@ -4,7 +4,7 @@ import {IoIosQuote} from "react-icons/io";
 import {AiOutlineStar} from "react-icons/ai";
 
 const ReviewsSlider = (props) => {
-    const {name, position, img_url, stars, disc} = props.item;
+    const {name, position, stars, disc} = props.item;
   return (
     <Container>
         <Header>
@@ -28,7 +28,7 @@ const ReviewsSlider = (props) => {
         </Footer>
     </Container>
   )
-}
+} 
 
 export default ReviewsSlider
 

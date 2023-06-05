@@ -1,20 +1,16 @@
-import Navbar from "react-bootstrap/Navbar";
 import logo from "../Assets/logo.png";
-import { Link } from "react-router-dom";
 import React, { useState } from 'react'
 import styled from 'styled-components';
-import { GiCandleFlame } from "react-icons/gi";
 
 const NavBar = () => {
   const [bar, setBar] = useState(false);
-  const [navColour, updateNavbar] = useState(false);
 
   return (
     <Container bar={bar}
-      className={`${navColour ? "sticky" : "navbar"} `}
+      className={`navbar`}
     >
         <Logo >
-          <img className="w-[50px]" src={logo} />
+          <img className="w-[50px]" src={logo} alt="" />
         </Logo>
         <Nav bar={bar}>
           <span><a href="/#home">Home</a></span>
@@ -30,7 +26,6 @@ const NavBar = () => {
           className="bars">
           <div className="bar"></div>
         </div>
-      {/* </Navbar> */}
     </Container>
   )
 }

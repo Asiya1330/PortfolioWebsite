@@ -1,7 +1,6 @@
 import ProjectGallery from '../ProjectsGrid/ProjectGallery';
 import ProjectHeader from '../ProjectsGrid/ProjectHeader';
 import ProjectInfo from '../ProjectsGrid/ProjectInfo';
-import ProjectRelatedProjects from '../ProjectsGrid/ProjectRelatedProjects';
 import { SingleProjectProvider } from '../../Context/SingleProjectContext';
 import { motion } from 'framer-motion';
 
