@@ -2,14 +2,22 @@ import { useContext } from 'react';
 import { FiClock, FiTag } from 'react-icons/fi';
 import SingleProjectContext from '../../Context/SingleProjectContext';
 
-const ProjectSingleHeader = () => {
+const ProjectSingleHeader = ({ filteredProject }) => {
 	const { singleProjectData } = useContext(SingleProjectContext);
 
 	return (
 		<div>
-			<p className="font-general-medium text-left text-3xl sm:text-4xl font-bold text-primary-light mt-14 sm:mt-20 mb-7">
-				{singleProjectData.ProjectHeader.title}
-			</p>
+			<div className='mb-4'>
+				<div className='flex justify-between items-center'>
+					<div className="font-general-medium text-left text-3xl sm:text-4xl font-bold text-primary-light ">
+						{filteredProject?.title}
+					</div>
+					{filteredProject?.link &&
+						<a href={filteredProject?.link} className='border-2 px-4 py-2 border-solid rounded text-white' target='_blank' rel="noreferrer" >Live Demo</a>
+					}
+				</div>
+				<div className='text-left text-gray-50 text-sm'>{filteredProject.shortDesc}</div>
+			</div>
 			<div className="flex">
 				<div className="flex items-center mr-10">
 					<FiClock className="text-lg text-ternary-dark dark:text-ternary-light" />

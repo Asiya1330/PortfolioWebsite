@@ -17,6 +17,7 @@ import "./style.css";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ProjectSingle from "./components/ProjectSingle/ProjectSingle";
+import SkillsSingle from "./SkillsSingle/SkillsSingle";
 
 function App() {
   const [load, upadateLoad] = useState(true);
@@ -40,7 +41,8 @@ function App() {
           <Route path="/project" element={<Projects />} />
           <Route path="/about" element={<About />} />
           <Route path="/resume" element={<Resume />} />
-          <Route path="projects/single-project"element={<ProjectSingle />}/>
+          <Route path="projects/:id" element={<ProjectSingle />}/>
+          <Route path="skills/:title" element={<SkillsSingle />}/>
           <Route path="*" element={<Navigate to="/"/>} />
         </Routes>
         <Footer />

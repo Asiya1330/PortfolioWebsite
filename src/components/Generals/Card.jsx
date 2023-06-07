@@ -1,15 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Modal from './Modal';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Card = (props) => {
-    const { Icon, disc, title } = props;
-  return (
-    <Container className='border-b-[3px] border-solid border-[#8f5caf] ' >
-        <span className='green text-[#8f5caf]'><Icon /></span>
-        <h1 className='text-gray-200 font-bold'>{title}</h1>
-        <p className='text-gray-200'>{disc}</p>
-    </Container>
-  )
+    const { Icon, disc, title, hoverContent } = props;
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    return (
+        <Container className='border-b-[3px] border-solid border-[#8f5caf] service-card' onClick={() => setIsModalOpen(!isModalOpen)}>
+            <Link to={`/skills/${title}`}>
+                <span className='green text-[#8f5caf]'><Icon /></span>
+                <h1 className='text-gray-200 font-bold'>{title}</h1>
+                <p className='text-gray-200'>{disc}</p>
+            </Link>
+            <div class="content">
+                <div className='flex w-full'>Tools I use</div>
+                <div className='tools'>
+                    {hoverContent.map((content) => (
+                        <div className='flex items-center gap-2'>
+                            <div><Icon /></div>
+                            <div>{content}</div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+            <Modal isOpen={isModalOpen} closeModal={() => {
+                console.log(isModalOpen,'sss')
+                setIsModalOpen(!isModalOpen)}} />
+        </Container>
+    )
 }
 
 export default Card;
