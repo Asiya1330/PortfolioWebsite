@@ -1,46 +1,14 @@
-import { FiPhone, FiMapPin, FiMail } from 'react-icons/fi';
-
-const contacts = [
-	{
-		id: 1,
-		name: 'Your Address, Your City, Your Country',
-		icon: <FiMapPin />,
-	},
-	{
-		id: 2,
-		name: 'email@domain.com',
-		icon: <FiMail />,
-	},
-	{
-		id: 3,
-		name: '555 8888 888',
-		icon: <FiPhone />,
-	},
-];
+import ContactSvg from "../../Assets/undraw-contact.svg";
 
 const ContactDetails = () => {
-	return (
-		<div className="w-full lg:w-1/2" id="contact" >
-			<div className="text-left max-w-xl px-6">
-				<h2 className="font-general-medium text-2xl text-primary-light mt-12 mb-8">
-					Contact details
-					
-				</h2>
-				<ul className="font-general-regular">
-					{contacts.map((contact) => (
-						<li className="flex " key={contact.id}>
-							<i className="text-2xl text-gray-400 mr-4">
-								{contact.icon}
-							</i>
-							<span className="text-lg mb-4 text-ternary-light">
-								{contact.name}
-							</span>
-						</li>
-					))}
-				</ul>
-			</div>
-		</div>
-	);
+  return (
+    <div
+      className="w-full md:w-1/2 flex items-center justify-center "
+      id="contact"
+    >
+      <img className="pl-4" src={ContactSvg} alt="" />
+    </div>
+  );
 };
 
 export default ContactDetails;

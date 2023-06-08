@@ -16,7 +16,7 @@ function Home() {
       <Container fluid className="home-section" id="home">
         <Particle />
 
-        <Container className="home-content">
+        <Container className="home-content" id="home">
           <Row>
             <Col md={7} className="home-header">
               <h1 style={{ paddingBottom: 15 }} className="heading">
@@ -67,7 +67,6 @@ function Home() {
       <Container>
         <Contact />
       </Container>
-     
     </section>
   );
 }

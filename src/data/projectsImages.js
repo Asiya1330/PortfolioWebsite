@@ -24,6 +24,13 @@ import TookSpot1 from '../Assets/Projects/tookSpot1.png'
 import TookSpot2 from '../Assets/Projects/tokspot3.png'
 import TookSpot3 from '../Assets/Projects/tokspot4.png'
 
+import DSHTML1 from '../Assets/Projects/DSHTML.png'
+import DSHTML2 from '../Assets/Projects/DSHTML2.png'
+import DSHTML3 from '../Assets/Projects/DSHTML3.png'
+
+import DSPDF1 from '../Assets/Projects/DSPDF1.png'
+import DSPDF2 from '../Assets/Projects/DSPDF2.png'
+import DSPDF3 from '../Assets/Projects/DSPDF3.png'
 
 export const Rev = [
     Rev1, Rev2, Rev3, Rev4
@@ -48,6 +55,13 @@ export const TookSpot = [
     TookSpot1, TookSpot2, TookSpot3
 ]
 
+export const DSHTML = [
+    DSHTML1, DSHTML2, DSHTML3
+]
 
+
+export const DSPDF = [
+    DSPDF1, DSPDF2, DSPDF3
+]
 
 

@@ -11,14 +11,14 @@ const FormInput = ({
 }) => {
 	return (
 		<div className="font-general-regular mb-4">
-			<label
-				className="block text-lg text-primary-light mb-1"
+			{/* <label
+				className="text-left block text-sm text-primary-light mb-1"
 				htmlFor={labelFor}
 			>
 				{inputLabel}
-			</label>
+			</label> */}
 			<input
-				className="w-full px-5 py-2 border border-primary-dark border-opacity-50 text-secondary-light bg-[#23103a78] rounded-md shadow-sm text-md"
+				className="w-full py-2 border-b border-gray-200 border-opacity-50 text-secondary-light bg-[#2c2c37] shadow-sm text-sm focus:outline-none"
 				type={inputType}
 				id={inputId}
 				name={inputName}
