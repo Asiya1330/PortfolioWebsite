@@ -12,12 +12,10 @@ import {
   Routes,
   Navigate
 } from "react-router-dom";
-import ScrollToTop from "./components/ScrollToTop";
 import "./style.css";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ProjectSingle from "./components/ProjectSingle/ProjectSingle";
-import SkillsSingle from "./SkillsSingle/SkillsSingle";
 
 function App() {
   const [load, upadateLoad] = useState(true);
@@ -35,14 +33,12 @@ function App() {
       <Preloader load={load} />
       <div className="App" id={load ? "no-scroll" : "scroll"}>
         <Navbar />
-        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/project" element={<Projects />} />
           <Route path="/about" element={<About />} />
           <Route path="/resume" element={<Resume />} />
           <Route path="projects/:id" element={<ProjectSingle />}/>
-          <Route path="skills/:title" element={<SkillsSingle />}/>
           <Route path="*" element={<Navigate to="/"/>} />
         </Routes>
         <Footer />

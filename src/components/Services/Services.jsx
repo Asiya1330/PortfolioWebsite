@@ -9,7 +9,8 @@ import { GiMaterialsScience } from 'react-icons/gi'
 import { TfiWrite } from 'react-icons/tfi'
 
 const Services = () => {
-    const services = [{
+    const services = [
+        {
         icon: CgDatabase,
         languages: [
             'Hadoop',
@@ -20,13 +21,14 @@ const Services = () => {
         ],
         title: "database designer",
 
-        discription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi et asperiores cum exercitationem officia rem amet minus magnam? Cum, voluptatem?",
-    }, {
+        discription: "With a passion for database development, I excel in designing efficient structures, optimizing query performance, and ensuring data integrity and security.",
+    }, 
+    {
         icon: MdOutlineDeveloperMode,
         languages:
             ["Vue JS", "React JS", "Angular (V2-V14)", "Node JS", "Django", "Laravel", "Flask", "Yii Framework (V1&2)", "Codeigniter", "UI/UX", "CakePHP"],
         title: "web & mobile developer",
-        discription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi et asperiores cum exercitationem officia rem amet minus magnam? Cum, voluptatem?",
+        discription: "With expertise in web and mobile development, I excel in crafting user-friendly interfaces, optimizing performance, and ensuring seamless functionality across various devices and platforms.",
     }, {
         icon: AiTwotoneCloud,
         languages: [
@@ -44,7 +46,7 @@ const Services = () => {
             'Serverless',
         ],
         title: "devops",
-        discription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi et asperiores cum exercitationem officia rem amet minus magnam? Cum, voluptatem?",
+        discription: "As a DevOps professional, I specialize in automating software delivery, implementing robust infrastructure, and ensuring seamless deployment, monitoring, and scaling of applications.",
     }, {
         icon: GiMaterialsScience,
         languages: [
@@ -65,7 +67,7 @@ const Services = () => {
             'Stata'
         ],
         title: "data science",
-        discription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi et asperiores cum exercitationem officia rem amet minus magnam? Cum, voluptatem?",
+        discription: "With a strong foundation in data science, I leverage advanced analytics techniques to extract valuable insights from diverse datasets and develop predictive models for informed decision-making.",
     }, {
         icon: MdDesignServices,
         languages: [
@@ -78,7 +80,7 @@ const Services = () => {
             "Mascots and a lot more"
         ],
         title: "graphic designer",
-        discription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi et asperiores cum exercitationem officia rem amet minus magnam? Cum, voluptatem?",
+        discription: "As a graphic designer, I create visually captivating designs, combining aesthetics and functionality to deliver impactful visual solutions across various mediums.",
     },
     {
         icon: TfiWrite,
@@ -86,24 +88,23 @@ const Services = () => {
             "Thesis Writing",
             "Report Writing",
             "Academic Writing",
-            "Content that drives leads",
+            "driving lead content",
             "Value-added content",
             "Plagiarism-free content",
             "Correct grammar",
             "Brand awareness",
             "Keyword search",
-            "and more..."
         ],
         title: "content writer",
-        discription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi et asperiores cum exercitationem officia rem amet minus magnam? Cum, voluptatem?",
+        discription: "As a content writer, I excel in crafting engaging and persuasive content, delivering compelling narratives that resonate with the target audience and drive desired actions.",
     }]
     return (
-        <Container className="max-w-[1040px]" id="services">
+        <Container className="max-w-[1040px] mt-8" id="services">
             <Slide direction="down" className="cardBox">
-                <h4 className="text-gray-200">
-                    My <span className="green">services</span>
-                </h4 >
-                <h1 className="text-gray-200">What I Do</h1>
+                <span className="text-gray-200 text-xl font-bold">
+                     MY SERVICES
+                </span >
+                <h1 className="text-gray-200 pt-0 mb-2">What I Do</h1>
             </Slide>
 
             <Cards>
@@ -130,8 +131,8 @@ export default Services;
 const Container = styled.div`
   width: 80%;
   max-width: 1280px;
-  margin: 0 auto;
-  padding: 3rem 0;
+  margin: 5rem auto 0 auto;
+  padding: 0rem 0;
   @media (max-width: 840px) {
     width: 90%;
   }
@@ -142,7 +143,6 @@ const Container = styled.div`
 `;
 const Cards = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  margin-top: 4rem;
+  grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
   gap: 1rem;
 `;

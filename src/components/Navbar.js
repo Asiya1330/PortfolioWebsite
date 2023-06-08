@@ -1,33 +1,65 @@
 import logo from "../Assets/logo.png";
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { flushSync } from "react-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import styled from 'styled-components';
 
 const NavBar = () => {
-  const [bar, setBar] = useState(false);
+    const [bar, setBar] = useState(false);
+    const location = useLocation();
+    const pathname = location.pathname;
+    const navigate = useNavigate()
+    const [page, setPage] = useState('home');
 
-  return (
-    <Container bar={bar}
-      className={`navbar`}
-    >
-        <Logo >
-          <img className="w-[50px]" src={logo} alt="" />
-        </Logo>
-        <Nav bar={bar}>
-          <span><a href="/#home">Home</a></span>
-          <span><a href="/#clients">Our Clients</a></span>
-          <span><a href="/#services">Services</a></span>
-          <span><a href="/#projects">Projects</a></span>
-          <span><a href="/#reviews">Testimonials</a></span>
-          <span><a href="/#contact">Contact Us</a></span>
+    useEffect(() => {
+        if (pathname.includes('projects')) {
+            setPage('projectDetails');
+        }
+        else setPage('home')
+    }, [pathname]);
 
-        </Nav>
-        <div
-          onClick={() => setBar(!bar)}
-          className="bars">
-          <div className="bar"></div>
-        </div>
-    </Container>
-  )
+    const scrollToSection = (sectionId, marginTop) => {
+        if (page !== 'home') {
+            navigate('/');
+            setTimeout(() => {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    window.scrollTo({
+                        top: section.offsetTop - marginTop,
+                        behavior: "smooth"
+                    })
+                }
+            }, 500);
+            return
+        }
+        flushSync(() => {
+            const element = document.getElementById(sectionId);
+            window.scrollTo({
+                top: element.offsetTop - marginTop,
+                behavior: "smooth"
+            })
+        })
+    }
+    return (
+        <Container bar={bar} className={`navbar`}>
+            <Logo onClick={()=>scrollToSection('home', 50)}>
+                <img className="w-[50px]" src={logo} alt="" />
+            </Logo>
+            <Nav bar={bar}>
+                <span onClick={() => setBar(!bar)}><div onClick={() => scrollToSection('home', 50)}>Home</div></span>
+                <span onClick={() => setBar(!bar)}><div onClick={() => scrollToSection('clients', 200)}>Our Clients</div></span>
+                <span onClick={() => setBar(!bar)}><div onClick={() => scrollToSection('services', 50)}>Services</div></span>
+                <span onClick={() => setBar(!bar)}><div onClick={() => scrollToSection('projects', 70)}>Projects</div></span>
+                <span onClick={() => setBar(!bar)}><div onClick={() => scrollToSection('reviews', 80)}>Testimonials</div></span>
+                <span onClick={() => setBar(!bar)}><div onClick={() => scrollToSection('contact', 100)}>Contact Us</div></span>
+            </Nav>
+            <div
+                onClick={() => setBar(!bar)}
+                className="bars">
+                <div className="bar"></div>
+            </div>
+        </Container>
+    )
 }
 
 export default NavBar
@@ -90,6 +122,7 @@ const Logo = styled.div`
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    cursor: pointer;
     span{
         font-size: 1.8rem;
     }
@@ -111,14 +144,19 @@ const Nav = styled.div`
         font-size: 2rem;
         gap: 2rem;
         font-weight: 700;
-        height: ${props => props.bar ? "100vh" : 0};
+        height: ${props => props.bar ? "103vh" : 0};
         transition: height 400ms ease-in-out;
         overflow: hidden;
         z-index: 100;
     }
     span{
         margin-left: 1rem;
-        a{
+        :hover {
+            cursor:pointer;
+            color: #debaf5;
+        }
+        div{
+            display:inherit; 
             color: #fff;
             text-decoration: none;
             font-weight: 400;

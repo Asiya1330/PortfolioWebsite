@@ -3,6 +3,7 @@ import { FiSearch } from 'react-icons/fi';
 import ProjectSingle from './ProjectSingle';
 import { ProjectsContext } from '../../Context/ProjectsContext';
 import ProjectsFilter from './ProjectsFilter';
+import { Slide } from 'react-awesome-reveal';
 
 const ProjectsGrid = () => {
 	const {
@@ -16,25 +17,13 @@ const ProjectsGrid = () => {
 	} = useContext(ProjectsContext);
 
 	return (
-		<section className="py-5 sm:py-10 mt-5 sm:mt-10 z-[9] relative " id="projects">
-			<div className="text-center">
-				<p className="font-general-medium text-2xl sm:text-4xl mb-1 text-ternary-light">
-					Projects portfolio
-				</p>
-			</div>
-
-			<div className="mt-10 sm:mt-16">
-				<h3
-					className="font-general-regular 
-                        text-center
-						text-ternary-light
-                        text-md
-                        sm:text-xl
-                        mb-3
-                        "
-				>
-					Search projects by title or filter by category
-				</h3>
+		<section className="pt-20 pb-5 z-[9] relative " id="projects">
+			<Slide direction="left">
+				<span className="green text-gray-200 text-xl font-bold">PROJECTS</span>
+				<h1 className='text-gray-200 mb-2'>Search or Filter
+				</h1>
+			</Slide>
+			<div className="">
 				<div
 					className="
                         flex
@@ -97,7 +86,7 @@ const ProjectsGrid = () => {
 						<ProjectSingle
 							id={project.id}
 							title={project.title}
-							category={project.category}
+							category={project.categories}
 							images={project.img}
 							key={project.id}
 							shortDesc={project.shortDesc}
@@ -108,7 +97,7 @@ const ProjectsGrid = () => {
 							<ProjectSingle
 								id={project.id}
 								title={project.title}
-								category={project.category}
+								category={project.categories}
 								images={project.img}
 								key={project.id}
 								shortDesc={project.shortDesc}
@@ -118,7 +107,7 @@ const ProjectsGrid = () => {
 							<ProjectSingle
 								id={project.id}
 								title={project.title}
-								category={project.category}
+								category={project.categories}
 								images={project.img}
 								key={project.id}
 								shortDesc={project.shortDesc}

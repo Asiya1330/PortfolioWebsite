@@ -84,8 +84,8 @@ const Reviews = () => {
     return (
         <Container id="reviews">
             <Slide direction="left">
-                <span className="green text-gray-200">testimonials</span>
-                <h1 className='text-gray-200'>what clients say</h1>
+                <span className="green text-gray-200 text-lg font-bold">testimonials</span>
+                <h1 className='text-gray-200 pt-0 mb-2'>what clients say</h1>
             </Slide>
             <Testimonials>
                 <Slider ref={arrowRef} {...settings}>

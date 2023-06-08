@@ -1,11 +1,13 @@
 import { FiFacebook, FiInstagram, FiLinkedin, FiTwitter, FiYoutube } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 
 const ProjectInfo = ({ filteredProject }) => {
+	console.log(filteredProject);
 	const SocialSharing = [
 		{
 			id: 1,
 			name: 'Twitter',
-			icon: <FiTwitter/>,
+			icon: <FiTwitter />,
 			url: 'https://twitter.com/',
 		},
 		{
@@ -43,10 +45,10 @@ const ProjectInfo = ({ filteredProject }) => {
 					<ul className="leading-loose">
 						<li className="font-general-regular text-ternary-light">
 							<span>Name: </span>
-							<a href="/#home"
+							<Link to="/#home"
 								className='hover:underline hover:text-indigo-500 dark:hover:text-indigo-400 cursor-pointer duration-300'
 								aria-label="Project Website and Phone"
-							>{filteredProject.title}</a>
+							>{filteredProject.title}</Link>
 						</li>
 						<li className="font-general-regular text-ternary-light">
 							<span>Website: </span>
@@ -108,19 +110,55 @@ const ProjectInfo = ({ filteredProject }) => {
 			</div>
 
 			{/*  Single project right section */}
-			<div className="w-full sm:w-2/3 text-left mt-10 sm:mt-0">
+			<div className="w-full sm:w-2/3 text-left mt-10 sm:mt-0 text-gray-200">
 				<p className="font-general-regular text-primary-light text-2xl font-bold mb-7">Challenge</p>
-				
-				<p className="font-general-regular mb-5 text-lg text-ternary-light">
-					Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis, ducimus, aliquam quo cumque ipsum fugiat nostrum adipisci fuga nisi illo iste architecto accusantium maiores! Nobis provident excepturi atque vel eaque. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse, amet hic? Quas, itaque harum quo dolore repellat ipsum? Minus nihil harum dicta provident, mollitia porro atque exercitationem ipsam. Quisquam, perspiciatis.
-				</p>
-				<p className="font-general-regular mb-5 text-lg text-ternary-light">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi soluta ex, reiciendis eos quam quas nemo pariatur quos cupiditate ducimus ut asperiores fuga, nisi aperiam sed eum. Earum, temporibus dolorem.</p>
-				<p className="font-general-regular mb-5 text-lg text-ternary-light">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi soluta ex, reiciendis eos quam quas nemo pariatur quos cupiditate ducimus ut asperiores fuga, nisi aperiam sed eum. Earum, temporibus dolorem.</p>
+				{filteredProject?.description ?
+					<>
+						<div>
+							{filteredProject.description}
+						</div>
+						<div className='text-gray-200 mt-4' dangerouslySetInnerHTML={{ __html: filteredProject?.project_solution }}>
+						</div>
+						<div className='mt-4'>
+							{filteredProject.model_training_steps &&
+								<>
+									<h3>Model Traning Steps</h3>
+									{filteredProject.model_training_steps.map((step) => (
+										<li>
+											{step}
+										</li>
+									))}
+								</>
+							}
+						</div>
+						<div className='mt-4'>
+							{filteredProject.evaluation_measures &&
+								<>
+									<h3>Evaluation Measures</h3>
+									{filteredProject.evaluation_measures.map((step) => (
+										<li>
+											{step}
+										</li>
+									))
+									}
+								</>
+							}
+						</div>
 
-				<p className="font-general-regular mb-5 text-lg text-ternary-light">
-					Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis, ducimus, aliquam quo cumque ipsum fugiat nostrum adipisci fuga nisi illo iste architecto accusantium maiores! Nobis provident excepturi atque vel eaque. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse, amet hic? Quas, itaque harum quo dolore repellat ipsum? Minus nihil harum dicta provident, mollitia porro atque exercitationem ipsam. Quisquam, perspiciatis.
-				</p>
+					</>
+					:
+					<>
+						<p className="font-general-regular mb-5 text-lg text-ternary-light">
+							Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis, ducimus, aliquam quo cumque ipsum fugiat nostrum adipisci fuga nisi illo iste architecto accusantium maiores! Nobis provident excepturi atque vel eaque. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse, amet hic? Quas, itaque harum quo dolore repellat ipsum? Minus nihil harum dicta provident, mollitia porro atque exercitationem ipsam. Quisquam, perspiciatis.
+						</p>
+						<p className="font-general-regular mb-5 text-lg text-ternary-light">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi soluta ex, reiciendis eos quam quas nemo pariatur quos cupiditate ducimus ut asperiores fuga, nisi aperiam sed eum. Earum, temporibus dolorem.</p>
+						<p className="font-general-regular mb-5 text-lg text-ternary-light">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi soluta ex, reiciendis eos quam quas nemo pariatur quos cupiditate ducimus ut asperiores fuga, nisi aperiam sed eum. Earum, temporibus dolorem.</p>
 
+						<p className="font-general-regular mb-5 text-lg text-ternary-light">
+							Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis, ducimus, aliquam quo cumque ipsum fugiat nostrum adipisci fuga nisi illo iste architecto accusantium maiores! Nobis provident excepturi atque vel eaque. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse, amet hic? Quas, itaque harum quo dolore repellat ipsum? Minus nihil harum dicta provident, mollitia porro atque exercitationem ipsam. Quisquam, perspiciatis.
+						</p>
+					</>
+				}
 			</div>
 		</div>
 	);
